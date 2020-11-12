@@ -1,6 +1,7 @@
 
 import re
 
+port = 8086
 reg_x_length = 19
 reg_y_length = 22
 reg_z_length = 23
@@ -17,19 +18,19 @@ def loading_registers(key):
     i = 0
     while(i < reg_x_length): 
         reg_x.insert(i, int(key[i]))  # takes first 19 elements from key
-        i = i + 1
+        i += 1
     j = 0
     p = reg_x_length
     while(j < reg_y_length): 
-        reg_y.insert(j,int(key[p]))  # takes next 22 elements from key
-        p = p + 1
-        j = j + 1
+        reg_y.insert(j, int(key[p]))  # takes next 22 elements from key
+        p += 1
+        j += 1
     k = reg_y_length + reg_x_length
     r = 0
     while(r < reg_z_length): 
         reg_z.insert(r,int(key[k]))  # takes next 23 elements from key
-        k = k + 1
-        r = r + 1
+        k += 1
+        r += 1
 
 
 def to_binary(plain):
@@ -41,8 +42,8 @@ def to_binary(plain):
         j = len(binary)
         while(j < 8):
             binary = '0' + binary
-            s = s + binary
-            j = j + 1
+            s += binary
+            j += 1
     binary_values = []
     k = 0
     while(k < len(s)):
