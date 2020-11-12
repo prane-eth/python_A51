@@ -7,10 +7,10 @@ reg_x_length = 19
 reg_y_length = 22
 reg_z_length = 23
 
-key_one = ''
 reg_x = []
 reg_y = []
 reg_z = []
+key_one = ''
 default_key = '0101001000011010110001110001100100101001000000110111111010110111'
 
 
@@ -32,20 +32,6 @@ def loading_registers(key):
         reg_z.insert(r,int(key[k]))  # takes next 23 elements from key
         k = k + 1
         r = r + 1
-
-
-def set_key(key):
-    'sets the key and loads the registers if it contains 0 s and 1 s and if it is exactly 64 bits'
-    if(len(key) == 64 and re.match('^([01])+', key)):
-        key_one = key
-        loading_registers(key)
-        return True
-    return False
-
-
-def get_key():
-    'gets the key'
-    return key_one
 
 
 def to_binary(plain):
@@ -158,6 +144,16 @@ def decrypt(cipher):
 
 
 '''# Taken from https://github.com/dixitaayush8/A5-1
+def set_key(key):
+    'sets the key and loads the registers if it contains 0 s and 1 s and if it is exactly 64 bits'
+    if(len(key) == 64 and re.match('^([01])+', key)):
+        key_one = key
+        loading_registers(key)
+        return True
+    return False
+def get_key():
+    'gets the key'
+    return key_one
 def user_input_key():
     'input the key from the console'
 	tha_key = str(input('Enter a 64-bit key: '))
