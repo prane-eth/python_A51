@@ -49,7 +49,7 @@ def to_binary(plain):
     k = 0
     while(k < len(s)):
         binary_values.insert(k, int(s[k]))
-        k = k + 1
+        k += 1
     return binary_values
 
 
