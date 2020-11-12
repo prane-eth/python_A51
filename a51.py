@@ -39,7 +39,7 @@ def to_binary(plain):
     s = ''
     i = 0
     for i in plain:
-        binary = str(' '.join(format(ord(x), 'b') for x in i))
+        binary = ' '.join(format(ord(x), 'b') for x in i)
         j = len(binary)
         while(j < 8):
             binary = '0' + binary
@@ -143,7 +143,6 @@ def decrypt(cipher):
     return convert_binary_to_str(str(s))
 
 
-'''# Taken from https://github.com/dixitaayush8/A5-1
 def set_key(key):
     'sets the key and loads the registers if it contains 0 s and 1 s and if it is exactly 64 bits'
     if(len(key) == 64 and re.match('^([01])+', key)):
@@ -151,62 +150,70 @@ def set_key(key):
         loading_registers(key)
         return True
     return False
+
+
+set_key(default_key)
+
+'''
+# Taken from https://github.com/dixitaayush8/A5-1
 def get_key():
     'gets the key'
     return key_one
 def user_input_key():
     'input the key from the console'
-	tha_key = str(input('Enter a 64-bit key: '))
-	if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
-		return tha_key
-	else:
-		if (len(tha_key) != 64 and not re.match('^([01])+', tha_key)):
-			if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
-				return tha_key
-			tha_key = default_key
-	return tha_key
+    tha_key = input('Enter a 64-bit key: ')
+    if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
+        return tha_key
+    else:
+        if (len(tha_key) != 64 and not re.match('^([01])+', tha_key)):
+            if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
+                return tha_key
+            tha_key = default_key
+    return tha_key
 def user_input_choice():
     'input the choice from the console'
-	someIn = str(input('[0]: Quit\n[1]: Encrypt\n[2]: Decrypt\nPress 0, 1, or 2: '))
-	if (someIn == '0' or someIn == '1' or someIn == '2'):
-		return someIn
-	else:
-		while(someIn != '0' or someIn != '1' or someIn != '2'):
-			if (someIn == '0' or someIn == '1' or someIn == '2'):
-				return someIn
-			someIn = str(input('[0]: Quit\n[1]: Encrypt\n[2]: Decrypt\nPress 0, 1, or 2: '))
-	return someIn
+    someIn = input('[0]: Quit\n[1]: Encrypt\n[2]: Decrypt\nPress 0, 1, or 2: ')
+    if (someIn == '0' or someIn == '1' or someIn == '2'):
+        return someIn
+    else:
+        while(someIn != '0' or someIn != '1' or someIn != '2'):
+            if (someIn == '0' or someIn == '1' or someIn == '2'):
+                return someIn
+            someIn = input('[0]: Quit\n[1]: Encrypt\n[2]: Decrypt\nPress 0, 1, or 2: ')
+    return someIn
 def user_input_plaintext():
     'input plaintext in console'
-	try:
-		someIn = str(input('Enter the plaintext: '))
-	except:
-		someIn = str(input('Try again: '))
-	return someIn
+    try:
+        someIn = input('Enter the plaintext: ')
+    except:
+        someIn = input('Try again: ')
+    return someIn
 def user_input_ciphertext():
     'input ciphertext in console'
-	ciphertext = str(input('Enter a ciphertext: '))
-	if (re.match('^([01])+', ciphertext)):
-		return ciphertext
-	else:
-		while(not re.match('^([01])+', ciphertext)):
-			if (re.match('^([01])+', ciphertext)):
-				return ciphertext
-			ciphertext = str(input('Enter a ciphertext: '))
-	return ciphertext
-def tha_main(): #the main function that processes user inputs 
-	key = default_key  # str(user_input_key())
-	set_key(key)
-	first_choice = user_input_choice()
-	if(first_choice == '0'):
-		print('Have an awesome day!!!')
-		sys.exit(0)
-	elif(first_choice == '1'):
-		plaintext = str(user_input_plaintext())
-		print(plaintext)
-		print(encrypt(plaintext))
-	elif(first_choice == '2'):
-		ciphertext = str(user_input_ciphertext())
-		print(decrypt(ciphertext))		
+    ciphertext = input('Enter a ciphertext: '))
+    if (re.match('^([01])+', ciphertext)):
+        return ciphertext
+    else:
+        while(not re.match('^([01])+', ciphertext)):
+            if (re.match('^([01])+', ciphertext)):
+                return ciphertext
+            ciphertext = input('Enter a ciphertext: '))
+    return ciphertext
+def tha_main():
+    'the main function that processes user inputs'
+    key = default_key  # user_input_key())
+    set_key(key)
+    first_choice = user_input_choice()
+    if(first_choice == '0'):
+        print('Have an awesome day!!!')
+        sys.exit(0)
+    elif(first_choice == '1'):
+        plaintext = user_input_plaintext())
+        print(plaintext)
+        print(encrypt(plaintext))
+    elif(first_choice == '2'):
+        ciphertext = user_input_ciphertext())
+        print(decrypt(ciphertext))		
 if __name__ == '__main__':
-    tha_main()'''
+    tha_main()
+'''
