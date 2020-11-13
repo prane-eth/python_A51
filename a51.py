@@ -1,7 +1,7 @@
 
 import re
 
-port = 8086
+port = 1234
 reg_x_length = 19
 reg_y_length = 22
 reg_z_length = 23
@@ -10,7 +10,7 @@ reg_x = []
 reg_y = []
 reg_z = []
 key_one = ''
-default_key = '0101001000011010110001110001100100101001000000110111111010110111'
+secret_key = '0101001000011010110001110001100100101001000000110111111010110111'
 
 
 def loading_registers(key):
@@ -142,6 +142,11 @@ def decrypt(cipher):
     return convert_binary_to_str(str(s))
 
 
+key_one = secret_key
+loading_registers(secret_key)
+
+'''
+# Taken from https://github.com/dixitaayush8/A5-1
 def set_key(key):
     'sets the key and loads the registers if it contains 0 s and 1 s and if it is exactly 64 bits'
     if(len(key) == 64 and re.match('^([01])+', key)):
@@ -149,12 +154,6 @@ def set_key(key):
         loading_registers(key)
         return True
     return False
-
-
-set_key(default_key)
-
-'''
-# Taken from https://github.com/dixitaayush8/A5-1
 def get_key():
     'gets the key'
     return key_one
@@ -167,7 +166,7 @@ def user_input_key():
         if (len(tha_key) != 64 and not re.match('^([01])+', tha_key)):
             if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
                 return tha_key
-            tha_key = default_key
+            tha_key = secret_key
     return tha_key
 def user_input_choice():
     'input the choice from the console'
@@ -200,7 +199,7 @@ def user_input_ciphertext():
     return ciphertext
 def tha_main():
     'the main function that processes user inputs'
-    key = default_key  # user_input_key())
+    key = secret_key  # user_input_key())
     set_key(key)
     first_choice = user_input_choice()
     if(first_choice == '0'):

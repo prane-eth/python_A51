@@ -1,8 +1,0 @@
-Q23. A5/1 Cipher
-
-Aim: To design a cryptographic tool (from the below list) using
-Alice-Bob model as shown below and submit a brief report.
-
-
-Sender: Alice
-Receiver: Bob
