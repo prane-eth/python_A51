@@ -4,7 +4,7 @@
 import socket
 from a51 import encrypt, port
 
-message = 'This is a message'
+message = 'secret'
 message = encrypt(message)
 
 s = socket.socket()
