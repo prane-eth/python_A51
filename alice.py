@@ -2,7 +2,7 @@
 'For sending messages from Alice'
 
 import socket
-from a51 import encrypt, port
+from a5_1 import encrypt, port
 
 message = 'secret'
 message = encrypt(message)

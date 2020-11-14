@@ -2,7 +2,7 @@
 'For receiving messages as Bob'
 
 import socket                
-from a51 import decrypt, port
+from a5_1 import decrypt, port
 
 s = socket.socket()                   
 s.connect(('127.0.0.1', port)) 
