@@ -13,7 +13,7 @@ key_one = ''
 secret_key = '0101001000011010110001110001100100101001000000110111111010110111'
 
 
-def loading_registers(key):
+def load_registers(key):
     'loads registers using a 64-bit key as a parameter'
     i = 0
     while(i < reg_x_length): 
@@ -53,10 +53,8 @@ def to_binary(plain):
 
 
 def get_majority(x,y,z):
-    '''gets majority by adding up the x,y,and z values and
-        if it's greater than 1 (e.g. two 1's and one 0), it returns the majority (1). 
-    Otherwise, if it's two 0's and one 1, the majority is returned as 0.'''
-    if(x + y + z > 1):
+    'if 2 or more 1s, then 1. Else, 0'
+    if (x + y + z > 1):
         return 1
     else:
         return 0
@@ -143,75 +141,4 @@ def decrypt(cipher):
 
 
 key_one = secret_key
-loading_registers(secret_key)
-
-'''
-# Taken from https://github.com/dixitaayush8/A5-1
-def set_key(key):
-    'sets the key and loads the registers if it contains 0 s and 1 s and if it is exactly 64 bits'
-    if(len(key) == 64 and re.match('^([01])+', key)):
-        key_one = key
-        loading_registers(key)
-        return True
-    return False
-def get_key():
-    'gets the key'
-    return key_one
-def user_input_key():
-    'input the key from the console'
-    tha_key = input('Enter a 64-bit key: ')
-    if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
-        return tha_key
-    else:
-        if (len(tha_key) != 64 and not re.match('^([01])+', tha_key)):
-            if (len(tha_key) == 64 and re.match('^([01])+', tha_key)):
-                return tha_key
-            tha_key = secret_key
-    return tha_key
-def user_input_choice():
-    'input the choice from the console'
-    someIn = input('[0]: Quit\n[1]: Encrypt\n[2]: Decrypt\nPress 0, 1, or 2: ')
-    if (someIn == '0' or someIn == '1' or someIn == '2'):
-        return someIn
-    else:
-        while(someIn != '0' or someIn != '1' or someIn != '2'):
-            if (someIn == '0' or someIn == '1' or someIn == '2'):
-                return someIn
-            someIn = input('[0]: Quit\n[1]: Encrypt\n[2]: Decrypt\nPress 0, 1, or 2: ')
-    return someIn
-def user_input_plaintext():
-    'input plaintext in console'
-    try:
-        someIn = input('Enter the plaintext: ')
-    except:
-        someIn = input('Try again: ')
-    return someIn
-def user_input_ciphertext():
-    'input ciphertext in console'
-    ciphertext = input('Enter a ciphertext: '))
-    if (re.match('^([01])+', ciphertext)):
-        return ciphertext
-    else:
-        while(not re.match('^([01])+', ciphertext)):
-            if (re.match('^([01])+', ciphertext)):
-                return ciphertext
-            ciphertext = input('Enter a ciphertext: '))
-    return ciphertext
-def tha_main():
-    'the main function that processes user inputs'
-    key = secret_key  # user_input_key())
-    set_key(key)
-    first_choice = user_input_choice()
-    if(first_choice == '0'):
-        print('Have an awesome day!!!')
-        exit(0)
-    elif(first_choice == '1'):
-        plaintext = user_input_plaintext())
-        print(plaintext)
-        print(encrypt(plaintext))
-    elif(first_choice == '2'):
-        ciphertext = user_input_ciphertext())
-        print(decrypt(ciphertext))		
-if __name__ == '__main__':
-    tha_main()
-'''
+load_registers(secret_key)
