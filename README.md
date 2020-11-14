@@ -1,6 +1,11 @@
 # Python A5/1
 A5/1 cipher implemented using Python with Alice-Bob model
 
+## Report:
+https://www.overleaf.com/read/kwsnxvcmymfw
+
+![18BCE7147.pdf](/18BCE7147.pdf)
+
 ## To run:
 Run alice.py first and keep it open.
 
