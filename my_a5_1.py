@@ -72,7 +72,8 @@ def get_keystream(length):
     while i < length:
         majority = get_majority(reg_x_temp[8], reg_y_temp[10], reg_z_temp[10])
         if reg_x_temp[8] == majority: 
-            new = reg_x_temp[13] ^ reg_x_temp[16] ^ reg_x_temp[17] ^ reg_x_temp[18]
+            new = reg_x_temp[13] ^ reg_x_temp[16] ^ \
+                  reg_x_temp[17] ^ reg_x_temp[18]
             reg_x_temp_two = reg_x_temp.copy()
             j = 1
             while(j < len(reg_x_temp)):
@@ -90,7 +91,8 @@ def get_keystream(length):
             reg_y_temp[0] = new_one
 
         if reg_z_temp[10] == majority:
-            new_two = reg_z_temp[7] ^ reg_z_temp[20] ^ reg_z_temp[21] ^ reg_z_temp[22]
+            new_two = reg_z_temp[7] ^ reg_z_temp[20] ^ \
+                      reg_z_temp[21] ^ reg_z_temp[22]
             reg_z_temp_two = reg_z_temp.copy()
             m = 1
             while(m < len(reg_z_temp)):
@@ -98,7 +100,8 @@ def get_keystream(length):
                 m += 1
             reg_z_temp[0] = new_two
 
-        keystream.insert(i, reg_x_temp[18] ^ reg_y_temp[21] ^ reg_z_temp[22])
+        keystream.insert(i, reg_x_temp[18] ^ \
+                         reg_y_temp[21] ^ reg_z_temp[22])
         i += 1
     return keystream
 
@@ -115,22 +118,19 @@ def convert_binary_to_str(binary):
 
 
 def encrypt(plain):
-    '''takes in a plaintext, converts it to binary, gets the keystream
-        after inputting the length of the binary, and appends the XOR
-        values of the keystream and binary to a string'''
-    s = ''
+    'encrypts plain text'
+    ciphertext = ''
     binary = to_binary(plain)
     keystream = get_keystream(len(binary))
     i = 0
     while(i < len(binary)):
-        s += str(binary[i] ^ keystream[i])
+        ciphertext += str(binary[i] ^ keystream[i])
         i += 1
-    return s
+    return ciphertext
 
 
 def decrypt(cipher):
-    '''takes in a cipher, gets the keystream from its length, 
-        cipher is XOR'd with keystream, and converted to string'''
+    'decrypts the cipher and returns plain text'
     s = ''
     binary = []
     keystream = get_keystream(len(cipher))
@@ -139,7 +139,7 @@ def decrypt(cipher):
         binary.insert(i,int(cipher[i]))
         s += str(binary[i] ^ keystream[i])
         i += 1
-    return convert_binary_to_str(str(s))
+    return convert_binary_to_str(str(s))  # plaintext
 
 
 key_one = secret_key
