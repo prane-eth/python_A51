@@ -5,6 +5,7 @@ import socket
 from a5_1 import encrypt, port
 
 message = 'secret'
+message = input('Enter message to send: ')
 message = encrypt(message)
 
 s = socket.socket()

@@ -11,5 +11,5 @@ s.close()
 
 message = message.decode()
 message = decrypt(message)
-print(message)
+print('Received message: ' + message)
 print()
