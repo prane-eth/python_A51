@@ -2,10 +2,9 @@
 'For sending messages from Alice'
 
 import socket
-from a5_1 import encrypt, port
+from my_a5_1 import encrypt, port
 
-message = 'secret'
-message = input('Enter message to send: ')
+message = input('Enter message to send: ') or 'secret'
 message = encrypt(message)
 
 s = socket.socket()

@@ -1,4 +1,6 @@
 
+'For performing the operations related to A5/1 cipher'
+
 import re
 
 port = 1234
