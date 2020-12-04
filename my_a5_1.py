@@ -3,7 +3,7 @@
 
 import re
 
-port = 1234
+port = 8080
 reg_x_length = 19
 reg_y_length = 22
 reg_z_length = 23

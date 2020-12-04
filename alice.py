@@ -17,3 +17,6 @@ while True:
     c.send(message.encode())
     print('Message sent')
     c.close()
+
+# code is uploaded on GitHub
+# https://github.com/vhpraneeth/python_A51

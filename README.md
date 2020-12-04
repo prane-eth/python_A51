@@ -7,7 +7,7 @@ https://www.overleaf.com/read/kwsnxvcmymfw
 [18BCE7147.pdf](/18BCE7147.pdf)
 
 ## To run:
-Run [alice.pdf](/alice.py) first and keep it open.
+Run [alice.py](/alice.py) first and keep it open.
 
 Run [bob.py](/bob.py) in a new terminal to receive the message.
 
