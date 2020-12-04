@@ -63,7 +63,7 @@ def get_majority(x,y,z):
 
 
 def get_keystream(length):
-    'calculates the keystream by XOR-ing the appropriate indeces'
+    'calculates the keystream by XOR-ing the appropriate indices'
     reg_x_temp = reg_x.copy()
     reg_y_temp = reg_y.copy()
     reg_z_temp = reg_z.copy()
@@ -139,7 +139,8 @@ def decrypt(cipher):
         binary.insert(i,int(cipher[i]))
         s += str(binary[i] ^ keystream[i])
         i += 1
-    return convert_binary_to_str(str(s))  # plaintext
+    plaintext = convert_binary_to_str(str(s))
+    return plaintext
 
 
 key_one = secret_key
