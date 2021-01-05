@@ -3,7 +3,7 @@
 
 import re
 
-port = 8080
+port = 8090
 reg_x_length = 19
 reg_y_length = 22
 reg_z_length = 23
@@ -11,11 +11,10 @@ reg_z_length = 23
 reg_x = []
 reg_y = []
 reg_z = []
-key_one = ''
 secret_key = '0101001000011010110001110001100100101001000000110111111010110111'
 
 
-def load_registers(key):
+def load_registers(key=secret_key):
     'loads registers using a 64-bit key as a parameter'
     i = 0
     while(i < reg_x_length): 
@@ -143,5 +142,4 @@ def decrypt(cipher):
     return plaintext
 
 
-key_one = secret_key
-load_registers(secret_key)
+load_registers()
